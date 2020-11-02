@@ -7,10 +7,10 @@ source ./tools/config.sh
 #
 
 if [ ! -d "$AR_COMPS/arduino" ]; then
-	git clone -b 1.0.4 $AR_REPO_URL "$AR_COMPS/arduino"
+	git clone -b latest-3.3 $AR_REPO_URL "$AR_COMPS/arduino"
 else
 	git -C "$AR_COMPS/arduino" fetch origin && \
-	git -C "$AR_COMPS/arduino" pull origin 1.0.4
+	git -C "$AR_COMPS/arduino" pull origin latest-3.3
 fi
 if [ $? -ne 0 ]; then exit 1; fi
 git -C "$AR_COMPS/arduino" submodule update --init --recursive
